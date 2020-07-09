@@ -78,6 +78,7 @@
     <img id="profile_img" class="profile" src=""/>
     <h2 id="profile_name"></h2>
     <p>LIFFの機能を試すためのページ。</p>
+    <button class="btn" id="closeWindowButton">close</button>
   </body>
   
   <script>
@@ -102,5 +103,15 @@
         liff.login();
       }
     })
+    
+    function closeWindow() {
+    if (!liff.isInClient()) {
+        sendAlertIfNotInClient();
+      } else {
+        liff.closeWindow();
+      }
+    }
+   
+  document.getElementById('closeWindowButton').addEventListener('click', closeWindow)
   </script>
 </html>
